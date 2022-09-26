@@ -1,0 +1,17 @@
+import pickle
+
+class Vehiculo:
+    def __init__(self,marca,modelo,cv):
+        self.marca = marca
+        self.modelo = modelo
+        self.cv = cv
+        
+coche = Vehiculo('kia', 'niro', 110)
+f = open('datoscoche.bin','wb')
+pickle.dump(coche,f)
+f.close()
+
+f = open('datoscoche.bin','rb')
+coche = pickle.load(f)
+
+print(coche.modelo)
